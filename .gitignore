@@ -1,2 +1,81 @@
+# For Java/Scala
 *.class
 *.log
+*.jar
+
+# sbt specific
+.cache
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+.idea
+
+# ENSIME specific
+.ensime_cache/
+.ensime
+
+# For VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+.idea/
+bin/.coursier
+bin/.scalafmt*
+.vscode/
+
+# Required because these are the proxies for the sourcedeps
+.bridge/
+.zinc/
+.nailgun/
+
+# Directory in which to install locally bloop binaries to test them
+.devbloop/
+
+# zinc uses this local cache for publishing stuff
+.ivy2/
+
+target/
+.bloop/
+/.bloop
+.bsp/
+
+# Ensime's config and cache
+.ensime
+.ensime_cache/
+integrations/gradle-bloop/lib
+
+# The index where we store project mappings for local benchmarks
+.local-benchmarks
+
+bloop-config/
+out/
+.DS_Store
+website/build/
+website/build/bloop-gh-pages/
+node_modules/
+package-lock.json
+.metals/
+*.lock
+*.lock.db
+*.mv.db
+benchmark-bridge/corpus/

@@ -1,0 +1,9 @@
+/.bsp/
+target/
+/.bloop/
+/.metals
+**/.bloop/
+**/.metals
+.metals/
+metals.mv.db
+.vscode/
