@@ -1,6 +1,5 @@
 package producer
 
-import producer.Product
 import scala.collection.mutable.ListBuffer
 //import scala.compiletime.ops.string
 
