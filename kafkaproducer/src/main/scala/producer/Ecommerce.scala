@@ -1,15 +1,14 @@
 // Run on VM as: spark-submit ./producer_2.11-0.1.0-SNAPSHOT.jar  --class ecommerce.Ecommerce
-package ecommerce
+package producer
 
 import scala.util.Random
-import ecommerce.{Order, Customer, HiveClient}
+import producer.{Order, Customer}
 import java.io._
 import scala.collection.mutable.ArrayBuffer
 
 object Ecommerce {
     val orderGenerator = new Order()
     val customerGenerator = new Customer()
-    val hive = new HiveClient()
     var currentTransactionID = 1
     val failureReason = List("Invalid Card Number", "Payment Declined", "Transaction Error", "Insufficient Funds")
     val minCustomers = 1500
@@ -49,10 +48,10 @@ object Ecommerce {
         appendRowsToCSV(rowsOfData)
 
         println(s"Uploading $csvPath to HDFS...")
-        hive.loadIntoHDFS(csvPath, hdfsPath)
+        //hive.loadIntoHDFS(csvPath, hdfsPath)
 
         println("Loading into Hive...")
-        hive.loadIntoHive("/user/maria_dev/vanquish/")
+        //hive.loadIntoHive("/user/maria_dev/vanquish/")
     }
 
     def appendRowsToCSV(rows: ArrayBuffer[String]): Unit = {

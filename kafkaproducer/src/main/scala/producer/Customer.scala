@@ -1,4 +1,4 @@
-package ecommerce
+package producer
 
 import scala.util.Random
 

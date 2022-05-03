@@ -1,4 +1,4 @@
-package ecommerce
+package producer
 /*
 The Product.scala file is where the products list is managed and includes all product info.
 It contains one function in the Product class which returns one random product when called.

@@ -1,6 +1,6 @@
-package ecommerce
+package producer
 
-import ecommerce.Product
+import producer.Product
 import scala.collection.mutable.ListBuffer
 //import scala.compiletime.ops.string
 
