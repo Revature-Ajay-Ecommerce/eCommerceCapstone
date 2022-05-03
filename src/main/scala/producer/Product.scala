@@ -20,7 +20,7 @@ class Product {
         Tuple4("Pet Supplies", "Chance & Friends \"Zen\" Plush Turtle Toy", 5.00f, 13), 
         Tuple4("Pet Supplies", "Purina Adult Dry Dog Food - High Protein", 42.99f, 14), 
         Tuple4("Pet Supplies", "Spiky Football Dog Toy - Squeaker", 2.99f, 15)
-        )
+    )
 
     def generateProductInfo: Tuple4[String, String, Float, Int] = {
         val r = scala.util.Random
