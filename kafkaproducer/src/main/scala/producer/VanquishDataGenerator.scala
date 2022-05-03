@@ -10,13 +10,11 @@ class AlchemyDataGenerator() {
 
     var currentTransactionID = 1
     val failureReason = List("Invalid Information", "Payment Declined", "Transaction Error", "Insufficient Funds", "Connection Timeout")
-    val minCustomers = 1500
-    val maxCustomers = 2000
+
     val maxOrdersPerCustomer = 3
     
     def generateOrder(): Seq[String] = {
         val rad = new scala.util.Random
-        val numberOfCustomers = minCustomers + rad.nextInt(maxCustomers - minCustomers)
         var order = ArrayBuffer[String]()
 
         val randomCustomer = customerGenerator.generateCustomerInfo()
