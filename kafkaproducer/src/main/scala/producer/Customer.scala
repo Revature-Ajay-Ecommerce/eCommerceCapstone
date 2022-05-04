@@ -46,6 +46,7 @@ class Customer {
   var customerList = new ListBuffer[Tuple4[String, String, String, Int]]      //Initiate List of created customers
   var newCustomer = false
   
+  //Takes a Double type value for wieghting purposes
   def generateCustomerInfo(indicator: Double): Tuple4[String, String, String, Int] = {
     var customer = Tuple4("Name", "City", "Country", 0)
     var customerID = 0
