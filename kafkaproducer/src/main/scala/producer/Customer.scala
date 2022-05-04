@@ -84,21 +84,16 @@ class Customer {
     else{                                                                       //Pick from customer List if 5000 customers exist
       customer = customerList(Random.nextInt(customerList.length))
     }
-    //val customer = (getName, getLocation._1, getLocation._2, customerID)
-    // println(customer)
-    //nextCustomerID += 1
     return customer
   }
 
-  def main(args: Array[String]): Unit = {
-  }
-
-
+  // def main(args: Array[String]): Unit = {
+  // }
 }
 
 
-object main extends Customer{
-    for(i <- 0 to 10){
-      println(generateCustomerInfo())
-    }
-  }
+// object main extends Customer{
+//     for(i <- 0 to 10){
+//       println(generateCustomerInfo())
+//     }
+//   }
