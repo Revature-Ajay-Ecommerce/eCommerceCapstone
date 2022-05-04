@@ -1,4 +1,7 @@
 package producer
+
+import scala.collection.mutable.ListBuffer
+import scala.util.Random
 /*
 The Product.scala file is where the products list is managed and includes all product info.
 It contains one function in the Product class which returns one random product when called.
@@ -24,8 +27,33 @@ class Product {
 
     def generateProductInfo: Tuple4[String, String, Float, Int] = {
         val r = scala.util.Random
-        val current_product = r.nextInt(productList.length) //returns a number from 0-n where n is the no. of products in productList.
-        
-        productList(current_product)
+        var selectProduct = ("String", "String", 5.00f, 0)
+        var cheapProdList = productList.filter(_._3 < 20.00)
+        var semiProdList = productList.filter(x => (x._3 >= 20.00 && x._3 <= 100.00))
+        var expensiveProdList = productList.filter(x => (x._3 > 100.00 && x._3 <= 500.00))
+        var extravagentProdList = productList.filter(_._3 > 500.00)
+        var budget = Random.nextInt(100)
+        if(budget < 40){
+            selectProduct = cheapProdList(Random.nextInt(cheapProdList.length))
+        }
+        else if(budget >= 40 && budget < 65){
+            selectProduct = semiProdList(Random.nextInt(cheapProdList.length))
+        }
+        else if(budget >= 65 && budget <= 90){
+            selectProduct = expensiveProdList(Random.nextInt(cheapProdList.length))            
+        }
+        else if(budget > 90){
+            selectProduct = extravagentProdList(Random.nextInt(cheapProdList.length))
+        }
+        return selectProduct
     }
+    // def main(args: Array[String]): Unit = {
+    // }
 }
+
+// object main extends Product {
+//     for(i <- 0 to 15){
+//         var rangen = Random.nextInt(100)
+//         println(generateProductInfo)
+//     }
+//   }
