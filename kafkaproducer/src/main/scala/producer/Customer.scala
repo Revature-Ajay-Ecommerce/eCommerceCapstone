@@ -2,7 +2,6 @@ package producer
 
 import scala.util.Random
 import scala.collection.mutable.ListBuffer
-import java.util.HashMap
 
 class Customer {
   val names = List(
@@ -45,19 +44,18 @@ class Customer {
   var customerID = 0
 
   def generateCustomerInfo(): Tuple4[String, String, String, Int] = {
-    //var customerList = new ListBuffer[Tuple4[String, String, String, Int]]      //Initiate List of created customers
-    var customerMap = new HashMap[Int, Tuple4[String, String, String, Int]]()
+    var customerList = new ListBuffer[Tuple4[String, String, String, Int]]      //Initiate List of created customers
     var customer = ("Name", "City", "Country", 0)
-    if(customerMap.size < 5000){                                             //5000 set as max number of created Customers
+    if(customerList.length < 5000){                                             //5000 set as max number of created Customers
       val getName = names(Random.nextInt(names.length))
       val getLocation = locations(Random.nextInt(locations.length))
-      for(cust <- customerMap){    //Won't work for empty List                 //Iterate through customer List to check if existing
-        if(customerMap.exist(x => x._2 == (getName, getLocation._1, getLocation._2))){
-          customerID = x._1
+      for(cust <- customerList){    //Won't work for empty List                 //Iterate through customer List to check if existing
+        if(cust._1 == getName && cust._2 == getLocation._1 && cust._3 == getLocation._2){
+          customerID = cust._4
         }
         else{
           customerID = nextCustomerID
-          customerMap += (customerID -> (getName, getLocation._1, getLocation._2))
+          customerList += Tuple4(getName, getLocation._1, getLocation._2, customerID)
           nextCustomerID += 1
         }
       }
@@ -76,9 +74,7 @@ class Customer {
     return customer
   }
 }
-
-object Main extends Customer {
-  for(i <- 0 to 10){
-    println(generateCustomerInfo())
+object main extends Customer{
+    for(i <- 0 to 10)
+      println(generateCustomerInfo())
   }
-}
