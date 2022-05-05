@@ -13,19 +13,6 @@ class Order {
         order_id = order_id + 2 // incrementing by 2 to avoid colliding with the other data generator
     }
 
-    // def generateProductList(r: Int): Vector[(String, String, Float, Int, Int)] = {            //Creates a product a random number of times
-    //     var orderProducts = new ListBuffer[Tuple5[String, String, Float, Int, Int]]()             //Will need to know number and kind of entries
-    //     for(i <- 0 to r) {                                              
-    //         var a = scala.util.Random
-    //         var orderQTY = a.nextInt(10) + 1                //Creates random qty
-    //         val product = productGenerator.generateProductInfo     //Creates product + qty
-    //         orderProducts += Tuple5(product._1, product._2, product._3.toFloat, product._4, orderQTY)
-
-    //     }
-
-    //     return orderProducts.toVector
-    // }
-
     def generateOrderInfo(): Tuple8[String, String, Float, Int, Int, String, String, Int] = {           //Generation of one order at a time
         var r = scala.util.Random                  //Random Number of Products
 

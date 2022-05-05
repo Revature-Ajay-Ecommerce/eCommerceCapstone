@@ -3,6 +3,7 @@ package producer
 object Test {
 
     val vDataGen = new VanquishDataGenerator()
+    //val aDataGen = new AlchemyDataGenerator()
 
 
     def main(args: Array[String]) {
@@ -11,9 +12,10 @@ object Test {
 
         println("This is the test of Vanquish Data Generator")
         println("We are going to generate 20 rows")
-        for(i <- 1 to 20) {
+        for(i <- 1 to 12500) {
             // publish to topic method here
             println(vDataGen.generateOrder())
+            //println(aDataGen.generateOrder())
         }
     }
 
