@@ -62,13 +62,13 @@ class Product {
             selectProduct = cheapProdList(Random.nextInt(cheapProdList.length))
         }
         else if(budget >= 40 && budget < 65){
-            selectProduct = semiProdList(Random.nextInt(cheapProdList.length))
+            selectProduct = semiProdList(Random.nextInt(semiProdList.length))
         }
         else if(budget >= 65 && budget <= 90){
-            selectProduct = expensiveProdList(Random.nextInt(cheapProdList.length))            
+            selectProduct = expensiveProdList(Random.nextInt(expensiveProdList.length))            
         }
         else if(budget > 90){
-            selectProduct = extravagentProdList(Random.nextInt(cheapProdList.length))
+            selectProduct = extravagentProdList(Random.nextInt(extravagentProdList.length))
         }
         return selectProduct
     }
