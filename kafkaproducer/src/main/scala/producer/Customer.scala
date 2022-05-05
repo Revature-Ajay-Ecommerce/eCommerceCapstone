@@ -87,7 +87,7 @@ class Customer {
         }
         else if(indicator < 0.7){
             var region = 0
-            var ranRegion = Random.nextInt(100)             //Weighting based on %GDP of total GDP from all included countries
+            var ranRegion = Random.nextInt(100)             //Weighting based on %GDP of total GDP from all included countries from 2017
             if(ranRegion < 70){
                 region = 0        //United States
             }
