@@ -87,21 +87,21 @@ class Customer {
         }
         else if(indicator < 0.7){
             var region = 0
-            var ranRegion = Random.nextInt(50)
-            if(ranRegion < 10){
-                region = 0
+            var ranRegion = Random.nextInt(100)             //Weighting based on %GDP of total GDP from all included countries
+            if(ranRegion < 70){
+                region = 0        //United States
             }
-            else if(ranRegion >= 10 && ranRegion < 25){
-                region = 1
+            else if(ranRegion >= 70 && ranRegion < 76){
+                region = 1        //Canada
             }
-            else if(ranRegion >= 25 && ranRegion < 35){
-                region = 2
+            else if(ranRegion >= 76 && ranRegion < 77){
+                region = 2        //Venezuela
             }
-            else if(ranRegion >= 35 && ranRegion < 45){
-                region = 3
+            else if(ranRegion >= 77 && ranRegion < 95){
+                region = 3        //Japan
             }
-            else if(ranRegion > 45){
-                region = 4
+            else if(ranRegion >= 95){
+                region = 4        //Mexico
             }
             customer = regionCustomer(region)
         }
