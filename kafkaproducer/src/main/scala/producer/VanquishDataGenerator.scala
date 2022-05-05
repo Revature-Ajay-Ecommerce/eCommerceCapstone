@@ -4,7 +4,7 @@ import scala.util.Random
 import java.io._
 import scala.collection.mutable.ArrayBuffer
 
-class AlchemyDataGenerator() {
+class VanquishDataGenerator() {
     val orderGenerator = new Order()
     val customerGenerator = new Customer()
     val timestampGenerator = new DateTimeGenerator()
@@ -16,7 +16,7 @@ class AlchemyDataGenerator() {
     def generateOrder(): String = {
         val rad = new scala.util.Random
 
-        val randomCustomer = customerGenerator.generateCustomerInfo()
+        val randomCustomer = customerGenerator.generateCustomerInfo(rad.nextDouble())
 
         val randomOrder = orderGenerator.generateOrderInfo()
 
