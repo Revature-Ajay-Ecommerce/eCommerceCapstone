@@ -1,23 +1,23 @@
 package datagen
-import datagen.Order
+
+import datagen.AlchemyOrders
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import scala.collection.mutable.ListBuffer
+import java.lang.Math
 
-class AlchemyDataGenerator {
 
-  var currentOrderID = 1
-  
-  def generateData(): String = {
+object AlchemyDataGenerator {
 
-  val format = new SimpleDateFormat("MM-dd-y HH:mm:ss")
-  val currentDay = format.format(Calendar.getInstance().getTime())
-  val order = new Order(currentOrderID, currentDay)
-  var row = order.generateRow()
-
-  currentOrderID+=2
-
-  return row
-  
+  def main(args: Array[String]): Unit = {
+    val runAll = new AlchemyOrders
+ 
+    val orderList = new ListBuffer[String]()
+    for(itr <- 1 to 12500){
+        orderList += runAll.generateRow()
+    }
+    for(o <- orderList){
+        println(o)
+    }
   }
 }

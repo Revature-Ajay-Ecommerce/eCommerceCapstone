@@ -1,17 +1,40 @@
 package datagen
 
 import scala.util.Random
-import datagen.Customer
-import datagen.Product
+import datagen.AlchemyCustomers
+import datagen.AlchemyProducts
+import java.lang.Math
 
-class Order (id: Int, datetime_ts: String){
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit.DAYS
+import scala.util.Random
 
-  // var count = 1
 
-  // def getOrderId(): Unit = {
-  //   count = count + 1
-  // }
+class AlchemyOrders {
 
+  val from = LocalDate.of(2013, 1, 1)
+  val to = LocalDate.of(2022, 1, 1)
+
+def random(from: LocalDate, to: LocalDate): LocalDate = {
+    val diff = DAYS.between(from, to)
+    val random = new Random(System.nanoTime) // You may want a different seed
+    val newDates = from.plusDays(random.nextInt(diff.toInt))
+    return newDates
+   }
+
+var currentTX = -1
+def getTx(): Int = {
+    currentTX +=2
+  return currentTX
+  
+}
+  var currentRecord = -1
+  def getOrderID(): Int = {
+  currentRecord += 2
+    return currentRecord
+       }
+       
+    
   def getRandomWebsite(): String = {
 
     val websiteList = Vector("www.Amazon.com", "www.BestBuy.com", "www.Walmart.com", "www.Ebay.com", "www.Etsy.com")
@@ -45,12 +68,12 @@ class Order (id: Int, datetime_ts: String){
 
   def generateRow(): String = { //Tuple16[Int, Int, String, Int, String, String, String, Int, Float, String, String, String, String, Int, Char, String] = {
         // In some ways this sucks, in other ways it will make it much clearer what each index is.
-    val customerGenerator = new Customer()
+    val customerGenerator = new AlchemyCustomers()
     val customer = customerGenerator.getRamCustomer()
-    val productGenerator = new Product()
+    val productGenerator = new AlchemyProducts()
     val product = productGenerator.getRandomProduct()
 
-    val orderID = id.toString()
+    var orderID = getOrderID() 
     val customerID = customer._1.toString
     val customerName = customer._2
     val productID = product._4.toString
@@ -59,15 +82,15 @@ class Order (id: Int, datetime_ts: String){
     val paymentType = customer._3
     val qty = getRandomQty()
     val price = product._3.toString   // In the return statemetn %.2f gives you tailing zeros
-    val datetime = datetime_ts
+    val datetime = random(from,to)
     val country = customer._4
     val city = customer._5
     val website = getRandomWebsite()
-    val transactionID = id.toString()
+    val transactionID = getTx()
     val transactionSuccess = getRandomTxStatus()
     val failureReason = generateRandomReason(transactionSuccess)
-    
+
     return f"$orderID,$customerID,$customerName,$productID,$productName,$productCategory,$paymentType,$qty,$price,$datetime,$country,$city,$website,$transactionID,$transactionSuccess,$failureReason" 
-    
+
   }
 }
