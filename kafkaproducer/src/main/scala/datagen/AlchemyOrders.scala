@@ -1,23 +1,41 @@
 package datagen
 
 import scala.util.Random
+import datagen.AlchemyCustomers
+import datagen.AlchemyProducts
 import java.lang.Math
 
 import java.time.LocalDate
-import java.time.temporal.ChronoUnit.DAYS
+import java.time.temporal.ChronoUnit._
 import scala.util.Random
-
+import java.time._
+import java.time.temporal.{ChronoField, ChronoUnit}
+import java.time.chrono.ChronoLocalDateTime
+import java.time.format.DateTimeFormatter
 
 class AlchemyOrders {
 
-  val from = LocalDate.of(2013, 1, 1)
-  val to = LocalDate.of(2022, 1, 1)
+  
+  val from = LocalDateTime.of(2013, 1, 1, 0, 0)
+  val to = LocalDateTime.of(2023, 1, 1, 0, 0)
+ 
 
-def random(from: LocalDate, to: LocalDate): LocalDate = {
+def randomDateTime(from: LocalDateTime, to: LocalDateTime): String = {
+
     val diff = DAYS.between(from, to)
+    val diff1= SECONDS.between(from,to)
+   
     val random = new Random(System.nanoTime) // You may want a different seed
     val newDates = from.plusDays(random.nextInt(diff.toInt))
-    return newDates
+
+    val randHour:Int = random.nextInt(24)
+    val randMinute:Int = random.nextInt(60)
+
+    val outputDate = LocalDateTime.of(newDates.getYear(), newDates.getMonthValue(), newDates.getDayOfMonth, randHour, randMinute)
+
+    val output = outputDate.format(DateTimeFormatter.ofPattern("y-MM-dd HH:mm"))
+
+    return output
    }
 
 var currentTX = -1
@@ -80,7 +98,7 @@ def getTx(): Int = {
     val paymentType = customer._3
     val qty = getRandomQty()
     val price = product._3.toString   // In the return statemetn %.2f gives you tailing zeros
-    val datetime = random(from,to)
+    val datetime = randomDateTime(from,to)
     val country = customer._4
     val city = customer._5
     val website = getRandomWebsite()
