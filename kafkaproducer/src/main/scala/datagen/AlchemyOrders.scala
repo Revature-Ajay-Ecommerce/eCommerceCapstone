@@ -1,8 +1,8 @@
 package datagen
 
 import scala.util.Random
-import datagen.AlchemyCustomers
-import datagen.AlchemyProducts
+//import datagen.AlchemyCustomers
+//import datagen.AlchemyProducts
 import java.lang.Math
 
 import java.time.LocalDate
