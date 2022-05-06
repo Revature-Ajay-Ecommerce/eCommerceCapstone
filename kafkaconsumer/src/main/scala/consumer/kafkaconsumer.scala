@@ -35,5 +35,17 @@ object consumer {
     val df = spark.readStream
         .format("csv")
         .put(BOOTSTRAP_SERVERS_CONFIG, "ec2-3-93-174-172.compute-1.amazonaws.com:9092")
+        .put("subscribe", "ecommerce")
+        .load
+        .select(col("value").cast("string"))
+
+        val copydataframe = df.select(from_json(col("value"), schema))
+        cdataframe.printSchema()
+
+        cdataframe.writeStream
+          outputMode("update")
+          .format("console")
+          .start()
+          .awaitTermination()
   }
 }
