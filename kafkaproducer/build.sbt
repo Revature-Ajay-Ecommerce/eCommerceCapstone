@@ -1,7 +1,7 @@
 import Dependencies._
 
 ThisBuild / scalaVersion     := "2.11.8"
-ThisBuild / version          := "0.1.0-SNAPSHOT"
+ThisBuild / version          := "0.1.0-ECOMMERCE"
 ThisBuild / organization     := "com.ecommerce"
 ThisBuild / organizationName := "ecommerce"
 val sparkVersion = "2.3.0"
