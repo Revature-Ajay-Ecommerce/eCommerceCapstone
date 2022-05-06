@@ -17,10 +17,11 @@ package producer
 import java.util.Properties
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.spark.sql.SparkSession
+import datagen.AlchemyDataGenerator
 
 object EcommerceKafkaProducer {
     val vDataGenerator = new VanquishDataGenerator()
-    //val aDataGenerator = new AlchemyDataGenerator()
+    val aDataGenerator = new AlchemyDataGenerator()
 
     // props
     val props = new Properties() // construct empty property list
@@ -48,10 +49,21 @@ object EcommerceKafkaProducer {
             for (i <- 1 to 12500) {
                 println(s"Running cycle # $i...")
                 val vRow = vDataGenerator.generateOrder()
-                //val aRow = aDataGenerator.generateData()
+                val aRow = aDataGenerator.generateOrder()
 
                 val vRecord = new ProducerRecord[String, String](topic,vRow)
-                //val aRecord = new ProducerRecord[String, String](topic, aRow)
+                val aRecord = new ProducerRecord[String, String](topic, aRow)
+
+
+                val aMetadata = producer.send(aRecord) // sending Producer record to topic
+                
+                printf(s"sent record(key=%s value=%s) " +
+                    "meta(partition=%d, offset=%d)\n",
+                    aRecord.key(),
+                    aRecord.value(),
+                    aMetadata.get().partition(),
+                    aMetadata.get().offset()
+                )
 
                 val vMetadata = producer.send(vRecord) // sending Producer record to topic
                     
@@ -61,15 +73,7 @@ object EcommerceKafkaProducer {
                     vRecord.value(),
                     vMetadata.get().partition(),
                     vMetadata.get().offset()
-                )
-                // val aMetadata =
-                //     producer.send(aRecord) // sending Producer record to topic
-                //   printf(
-                //   aRecord.key(),
-                //   aRecord.value(),
-                //   aMetadata.get().partition(),
-                //   aMetadata.get().offset()
-                // )
+                ) 
             }
         }
         catch {
