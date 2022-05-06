@@ -9,8 +9,6 @@
     //https://docs.aws.amazon.com/msk/latest/developerguide/mkc-create-topic.html
 // touch base with Drake regarding EC2 instance √
 
-// spark-submit 
-
 // Create a Kafka Cluster Using AWS MSK And Stream Data - Full Coding Demo
 // https://www.youtube.com/watch?v=y4wowEQd4Os&t=58s
 
@@ -20,9 +18,7 @@ import java.util.Properties
 import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.spark.sql.SparkSession
 
-
 object EcommerceKafkaProducer {
-    
     val vDataGenerator = new VanquishDataGenerator()
     //val aDataGenerator = new AlchemyDataGenerator()
 
