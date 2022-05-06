@@ -1,6 +1,5 @@
 package datagen
 
-import datagen.AlchemyOrders
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import scala.collection.mutable.ListBuffer
