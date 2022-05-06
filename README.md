@@ -50,5 +50,5 @@ Create the topic in Kafka):
  - Javier Zapata
 
 ## License
-This project uses the following license: [MIT License]()
+This project uses the following license: [MIT License](https://github.com/Revature-Ajay-Ecommerce/eCommerceCapstone/blob/02873be5f4a4b1ef13772636dea55ecbb8edb060/LICENSE)
 
