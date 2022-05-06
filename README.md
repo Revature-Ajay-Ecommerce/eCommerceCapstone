@@ -22,13 +22,28 @@ Clone this repository:
 
     git clone https://github.com/Revature-Ajay-Ecommerce/eCommerceCapstone.git
     
-Build the JARs in VS Code
+Open the program you want to build:
 
-    package
+- To open and build Producer, open the `kafkaproducer` directory using the Open Folder Option in VS Code
+
+- To open and build Consumer, open the `kafkaconsumer` directory using the Open Folder Option in VS Code
+
+In the sbt shell:
+
+- Compile using:
+
+        compile
+
+- Build the .jar file:
+
+        package
     
-Move the JARs to your VM:
+This will create the dedicated .jar in the `target/scala-2.11/` folder.
+    
+Move the JARs to the VM:
 
-    scp -P 2222 <name of jar> maria_dev@127.0.0.1:~
+    cd .\target\scala-2.11\
+    scp -P 2222 <JAR file name here> maria_dev@127.0.0.1:~
     
 Create the topic in Kafka):
 
@@ -36,7 +51,8 @@ Create the topic in Kafka):
 
 ## Usage
 
-    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 kafkaproducer_2.11-0.1.0-SNAPSHOT.jar
+    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 kafkaproducer_2.11-0.1.0-ECOMMERCE.jar
+    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 kafkaconsumer_2.11-0.1.0-SNAPSHOT.jar
 
 ## Contributors
  - Antonio Almonte-Cabrera
