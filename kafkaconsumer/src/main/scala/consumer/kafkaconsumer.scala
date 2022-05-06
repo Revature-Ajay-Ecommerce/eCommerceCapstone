@@ -8,7 +8,7 @@ object consumer {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession
       .builder()
-      .master("local[3]")
+      .master("local[4]")
       .appName("consumer")
       .getOrCreate()
    // spark.sparkContext.setLogLevel("ERROR")
