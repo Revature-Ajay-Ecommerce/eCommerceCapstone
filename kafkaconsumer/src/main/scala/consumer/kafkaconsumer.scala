@@ -1,8 +1,15 @@
 package example
-import org.apache.spark.sql.SparkSession
+
+import java.util.{Collections, Properties}
+import java.util.regex.Pattern
 import org.apache.kafka.clients.consumer.KafkaConsumer
+import scala.collection.JavaConverters._
+
+
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types._
-import java.io._
+import org.apache.spark.sql.functions._
+import org.apache.spark.sql.{Column, Dataset, Row, SparkSession}
 
 object consumer {
   def main(args: Array[String]): Unit = {
@@ -11,8 +18,10 @@ object consumer {
       .master("local[4]")
       .appName("consumer")
       .getOrCreate()
+
+      import spark.implicits._
    // spark.sparkContext.setLogLevel("ERROR")
-    val sc = spark.sparkContext
+   // val sc = spark.sparkContext
 
    val col1 = new StructType()
         .add("claim_id", StringType, true)
@@ -33,19 +42,15 @@ object consumer {
         .add("failure_reason", StringType, true)
 
     val df = spark.readStream
-        .format("csv")
-        .put(BOOTSTRAP_SERVERS_CONFIG, "")
-        .put("subscribe", "ecommerce")
+        .format("kafka")
+        .option("kafka.bootstrap.servers", "sandbox-hdp.hortonworks.com:6667")
+        .option("subscribe", "ecommerce")
         .load
         .select(col("value").cast("string"))
 
-        val cdataframe = df.select(from_json(col("value"), schema))
+        val cdataframe = df.select(from_json(col("value"), col1))
         cdataframe.printSchema()
 
-        cdataframe.writeStream
-          outputMode("update")
-          .format("console")
-          .start()
-          .awaitTermination()
+        cdataframe.writeStream.format("console").outputMode("append").option("truncate", "false").start().awaitTermination()
   }
 }
