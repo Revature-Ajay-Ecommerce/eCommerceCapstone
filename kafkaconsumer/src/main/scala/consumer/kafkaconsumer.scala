@@ -1,4 +1,4 @@
-package example
+package consumer
 
 import java.util.{Collections, Properties}
 import java.util.regex.Pattern
@@ -41,12 +41,7 @@ object consumer {
         .add("reimbursement_id", StringType, true)
         .add("failure_reason", StringType, true)
 
-    val df = spark.readStream
-        .format("kafka")
-        .option("kafka.bootstrap.servers", "sandbox-hdp.hortonworks.com:6667")
-        .option("subscribe", "ecommerce")
-        .load
-        .select(col("value").cast("string"))
+    val df = spark.readStream.format("kafka").option("kafka.bootstrap.servers", "sandbox-hdp.hortonworks.com:6667").option("subscribe", "ecommerce").load.select(col("value").cast("string"))
 
         val cdataframe = df.select(from_json(col("value"), col1))
         cdataframe.printSchema()
