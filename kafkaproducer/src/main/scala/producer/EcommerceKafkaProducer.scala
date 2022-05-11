@@ -1,6 +1,6 @@
 // $KAFKA_HOME/bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic ecommerce
 // $KAFKA_HOME/bin/kafka-console-consumer.sh --bootstrap-server sandbox-hdp.hortonworks.com:6667 --topic ecommerce
-// spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.0 kafkaspark_2.11-0.1.0-SNAPSHOT.jar
+// spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.0 kafkaproducer_2.11-0.1.0-ECOMMERCE.jar --class producer.EcommerceKafkaProducer
 
 
 // props √
