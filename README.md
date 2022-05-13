@@ -30,13 +30,13 @@ Open the program you want to build:
 
 In the sbt shell:
 
-- Compile using:
+Compile using:
 
-        compile
+    compile
 
-- Build the .jar file:
+Build the .jar file:
 
-        package
+    package
     
 This will create the dedicated .jar in the `target/scala-2.11/` folder.
     
