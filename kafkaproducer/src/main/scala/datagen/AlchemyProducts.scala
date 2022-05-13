@@ -81,7 +81,7 @@ class AlchemyProducts {
         Tuple4("Pet Supplies", "PROcure XXL Absorbent Pet Training Pads", 49.00f, 163), 
         Tuple4("Pet Supplies", "Aspen Pet Dog Tieout", 9.99f, 164), 
         Tuple4("Pet Supplies", "Meidong Pet Sling Carrier", 10.99f, 165),
-        Tuple4("Pet Supplies", "Vets Best Dog Toothbrush, Teeth Cleaning for Dog or Cat", 8.99f, 166), 
+        Tuple4("Pet Supplies", "Vets Best Dog Toothbrush", 8.99f, 166), 
         Tuple4("Pet Supplies", "Vibrant Life Blue Could Use a Treat Bandana Set - Neckwear for Dogs or Cats of all Lifestages", 8.99f, 167), 
         Tuple4("Pet Supplies", "Savory Prime Rawhide Chew Donut Dog Chew", 4.00f, 168), 
         Tuple4("Pet Supplies", "Hitt Brands Pet Laser Exerciser Keychain Toy 2 Pack", 3.99f, 169), 
@@ -93,7 +93,7 @@ class AlchemyProducts {
         Tuple4("Pet Supplies", "Magshion Premium Folding Dog Stroller", 68.99f, 175),
         Tuple4("Pet Supplies", "Flukers Screen Cover", 10.99f, 171), 
         Tuple4("Pet Supplies", "Oxbow Pet Products Essentials Cavy Cuisine Adult Guinea Pig Dry Food", 16.99f, 172), 
-        Tuple4("Pet Supplies", "Vibrant Life Pink I Heart Naps Bandana Set, Neckwear for Dogs or Cats of All Life Stages", 8.00f, 173), 
+        Tuple4("Pet Supplies", "Vibrant Life Pink I Heart Naps Bandana Set", 8.00f, 173), 
         Tuple4("Pet Supplies", "BARK Dogsup Super Chewer - Yankee Doodle Dog Toy - BBQ scented natural rubber", 12.99f, 174), 
         Tuple4("Pet Supplies", "Hartz Chew andn Clean Extra Small Dog Treat Bacon", 3.99f, 175),
 

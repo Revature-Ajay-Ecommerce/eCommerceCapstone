@@ -19,7 +19,7 @@ import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
 import org.apache.spark.sql.SparkSession
 import datagen.AlchemyDataGenerator
 
-object EcommerceKafkaProducer {
+object EcommerceKafkaProducer{
     val vDataGenerator = new VanquishDataGenerator()
     val aDataGenerator = new AlchemyDataGenerator()
 
@@ -28,7 +28,7 @@ object EcommerceKafkaProducer {
     //props.put("bootstrap.servers", "<EC2_instance_URL>")
     //props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"<EC2 Instance>")
     //props.put()
-    props.put("bootstrap.servers", "sandbox-hdp.hortonworks.com:6667")
+    props.put("bootstrap.servers", "localhost:9092")
     props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer")
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 

@@ -1,3 +1,6 @@
+// spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 ecommerconsumer.jar
+// spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 ecommerconsumer.jar
+
 package consumer
 
 import java.util
@@ -15,7 +18,7 @@ import org.apache.spark.sql.{Column, Dataset, Row, SparkSession}
 object EcommerceKafkaConsumer {
 
   def main(args: Array[String]): Unit = {
-    consumeFromKafka("ecommerce")
+    consumeFromKafka("insurance")
   }
 
   def consumeFromKafka(topic: String) = {
@@ -88,8 +91,8 @@ object EcommerceKafkaConsumer {
 
     val initDF = spark.readStream
     .format("kafka")
-    .option("kafka.bootstrap.servers", "sandbox-hdp.hortonworks.com:6667")
-    .option("subscribe", "ecommerce")
+    .option("kafka.bootstrap.servers", "localhost:9092")
+    .option("subscribe", "insurance")
     .load()
     .select(col("value").cast("string"))
     // df.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
@@ -105,9 +108,9 @@ object EcommerceKafkaConsumer {
       .writeStream
       .outputMode("append") // Filesink only support Append mode.
       .format("csv") // supports these formats : csv, json, orc, parquet
-      .option("path", "file:///home/maria_dev/output/filesink_output")
+      .option("path", "file:///home/hdoop/output/filesink_output")
       .option("header", false)
-      .option("checkpointLocation", "file:///home/maria_dev/output/checkpoint/filesink_checkpoint")
+      .option("checkpointLocation", "file:///home/hdoop/output/checkpoint/filesink_checkpoint")
       .start()
       .awaitTermination()
     
