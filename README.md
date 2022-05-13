@@ -52,7 +52,7 @@ Create the topic in Kafka):
 ## Usage
 
     spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 kafkaproducer_2.11-0.1.0-ECOMMERCE.jar
-    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 kafkaconsumer_2.11-0.1.0-SNAPSHOT.jar
+    spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 kafkaconsumer_2.11-0.1.0-SNAPSHOT.jar
 
 ## Contributors
  - Antonio Almonte-Cabrera
