@@ -11,7 +11,7 @@
 
 ## Project Description
 
-In this project we were created a Kafka Producer and Kafka Consumer to send generated data and also recieve it. After the data is consumed we then performed analysis on it to find insights and trends in the data.
+In this project we were created a Kafka Producer and Kafka Consumer. The Producer generated eCommerce data with trends to be found by the other team. The Consumer gethered the data from the other team and asaved it for later analysis. After the data is consumed we then performed analysis on it to find insights and trends in the data.
 
 ## Technologies Used
 
