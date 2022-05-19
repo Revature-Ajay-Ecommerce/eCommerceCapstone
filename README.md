@@ -11,11 +11,27 @@
 
 ## Project Description
 
+In this project we were created 
 
 ## Technologies Used
 
-	
+AWS EC2 Instance
+- JDK - version 1.8.0_321
+- Hadoop - version 3.3.1
+- Scala - version 2.11.12
+- Spark - version 3.1.3
+- Kafka - version 2.4.1
+
+- Hortonworks HDP 2.6.5
+- gitSCM - version 2.35.1
+- GitHub
+
 ## Features
+
+- Generatre Random eCommerce Data with trends
+- Publish data to a Kafka Topic on EC2 Instance
+- Consume Insurance data from Kafka Topic on the EC2 Instance
+- Analyze data and create visualizatinos
 
 ## Getting Started
 Clone this repository:
